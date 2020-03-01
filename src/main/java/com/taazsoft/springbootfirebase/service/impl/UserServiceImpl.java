@@ -1,6 +1,7 @@
 package com.taazsoft.springbootfirebase.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,12 @@ public class UserServiceImpl implements UserService{
 	public List<User> getAllUser() {
 		List<User> users = userRepository.findAll();
 		return users;
+	}
+
+	@Override
+	public User getUserByName(String name) {
+		Optional<User> user = userRepository.findByName(name);
+		return user.get();
 	}
 	
 	

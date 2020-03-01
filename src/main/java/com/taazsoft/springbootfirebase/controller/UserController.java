@@ -54,4 +54,10 @@ public class UserController {
 		List<User> response = userService.getAllUser();
 		return new ResponseEntity<List<User>>(response, HttpStatus.OK);
 	}
+	
+	@GetMapping("/byname/{name}")
+	public ResponseEntity<User> getUserByName(@PathVariable String name) {
+		User response = userService.getUserByName(name);
+		return new ResponseEntity<User>(response, HttpStatus.OK);
+	}
 }
