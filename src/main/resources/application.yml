@@ -1,0 +1,6 @@
+firebase:
+  realtime-database-url: https://ascert-78ab2.firebaseio.com/
+  service-account-filename: classpath:ascert-78ab2-firebase-adminsdk.json
+  
+server:
+  port: 9095

@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.taazsoft'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	// https://mvnrepository.com/artifact/com.google.firebase/firebase-admin
+	compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.12.2'
+	// https://mvnrepository.com/artifact/com.github.fabiomaffioletti/spring-boot-starter-data-firebase
+	compile group: 'com.github.fabiomaffioletti', name: 'spring-boot-starter-data-firebase', version: '1.0.0.RELEASE'
+	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.6'
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
